@@ -4,23 +4,16 @@ This guide explains how to update text, images, and specifications for vehicles,
 
 ## Editing Existing Content
 
-All content is stored in JSON files located in `src/data/`.
+All content is now managed via **Supabase**.
 
-1.  **Locate the file:** Find the JSON file for the vehicle you want to edit (e.g., `src/data/mullenOneData.json`).
-2.  **Edit the JSON:**
-    *   **Text:** Change the values of keys like `title`, `description`, `header`.
-    *   **Images:** Update the `imageUrl` or `src` paths. Ensure new images are placed in the `public/` folder.
-    *   **Toggles:** Change `isVisible: true` to `false` in the `sectionVisibility` object to hide an entire section.
-3.  **Save:** Saving the file will automatically update the local development server.
-
-**Example JSON Snippet:**
-```json
-"hero": {
-  "title": "The New Standard",  <-- Change this text
-  "description": "Efficient and reliable.",
-  "bgImage": "/images/hero-bg.jpg" <-- Change this image path
-}
-```
+1.  **Login:** Go to your Supabase Dashboard.
+2.  **Table:** Open the `vehicles` table.
+3.  **Edit:** Find the row for the vehicle you want to edit (e.g., `slug: mullenOne`).
+4.  **Update JSON:** Click on the `data` column to open the JSON editor.
+    *   **Text:** Change values like `title`, `description`.
+    *   **Images:** Update URL paths.
+    *   **Visibility:** Toggle `true`/`false` in `sectionVisibility`.
+5.  **Save:** Click "Save" in the dashboard. The site will update on the next refresh.
 
 ## Adding a New Vehicle
 

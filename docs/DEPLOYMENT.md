@@ -11,6 +11,8 @@ make dockerbuild
 ```
 *This builds the image and attempts to push it to the registry defined in the Makefile (`localhost:5000` by default).*
 
+**Important:** You must provide the `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` environment variables to the container at runtime.
+
 ### 2. Run Locally (Preview)
 To test the production build locally:
 ```bash
@@ -30,6 +32,8 @@ For quick previews or non-production environments, the project is compatible wit
 2.  **Build Settings:** Vercel automatically detects Next.js.
     - **Build Command:** `next build`
     - **Output Directory:** `.next`
-3.  **Environment Variables:** Configure any necessary env vars in the Vercel dashboard.
+3.  **Environment Variables:** Configure the following in the Vercel dashboard:
+    - `NEXT_PUBLIC_SUPABASE_URL`
+    - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 
 **Note:** While Vercel is supported, **Docker is the source of truth** for production releases to ensure environment consistency.

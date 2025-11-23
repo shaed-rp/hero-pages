@@ -21,7 +21,14 @@ This guide will help you set up the **Commercial EVs Showcase** project locally 
     npm install
     ```
 
-3.  **Run the development server:**
+3.  **Configure Environment Variables:**
+    Create a `.env.local` file in the root directory and add your Supabase credentials:
+    ```bash
+    NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+    NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+    ```
+
+4.  **Run the development server:**
     ```bash
     npm run dev
     ```

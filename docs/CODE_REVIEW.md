@@ -43,7 +43,7 @@ The project is well-structured and uses a modern tech stack (Next.js 15, TypeScr
 We recommend addressing these items in the following order:
 
 ### Phase 1: Performance (High Impact)
-- [ ] **Refactor Pages to Server Components:** Remove `'use client'` from `page.tsx`. Move state (modals) to a wrapper component.
+- [x] **Refactor Pages to Server Components:** Remove `'use client'` from `page.tsx`. Move state (modals) to a wrapper component. (Completed during Supabase integration)
 - [ ] **Optimize Images:** Ensure all `next/image` usage has proper sizing and priority attributes for LCP elements (Hero images).
 
 ### Phase 2: Refactoring (Developer Experience)
@@ -51,4 +51,4 @@ We recommend addressing these items in the following order:
 - [ ] **Centralize Types:** Clean up TypeScript definitions.
 
 ### Phase 3: Features
-- [ ] **CMS Integration:** The current JSON structure is ready to be replaced by a Headless CMS (like Contentful or Sanity) in the future if needed.
+- [x] **CMS Integration:** The current JSON structure is ready to be replaced by a Headless CMS (like Contentful or Sanity) in the future if needed. (Completed: Integrated Supabase)

@@ -1,6 +1,6 @@
 # Commercial EVs Showcase
 
-A **Next.js** application for showcasing commercial electric vehicles. This project uses a **data-driven architecture** to manage content for multiple vehicle models.
+A **Next.js** application for showcasing commercial electric vehicles. This project uses a **Supabase** backend to manage content for multiple vehicle models.
 
 ## 📚 Documentation
 

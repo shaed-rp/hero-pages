@@ -14,22 +14,20 @@ This project is a **Next.js 15** application built with a **Data-Driven Architec
 
 Instead of hardcoding text into pages, we use JSON files to store data.
 
-### 1. Data Source (`src/data/*.json`)
-Each vehicle has a dedicated JSON file (e.g., `mullenOneData.json`). This file contains:
-- **Site Config:** Brand colors, logos, titles.
-- **Section Visibility:** Toggles to show/hide sections (Overview, Specs, Gallery, etc.).
-- **Content:** The actual text, image URLs, and specifications for each section.
+### 1. Data Source (Supabase)
+We use **Supabase** (PostgreSQL) as our headless CMS.
+- **Table:** `vehicles`
+- **Schema:** Each row contains a `slug` (e.g., `mullenOne`) and a `data` JSONB column that holds the entire configuration for that vehicle.
+- **Migration:** Legacy JSON files in `src/data/*.json` were migrated to the database but are kept as a reference/backup.
 
-### 2. Configuration (`src/config/vehicleConfig.ts`)
-This file acts as the "brain". It imports the raw JSON data and maps it to the application's structure.
-- It exports a `vehicleConfigs` object keyed by vehicle ID (e.g., `mullenOne`).
-- It uses `createVehicleConfig` utility to merge the data with the section definitions.
+### 2. Data Fetching (`src/utils/vehicleService.ts`)
+We fetch data asynchronously on the server.
+- `getVehicleData(slug)`: Fetches the JSON blob for a specific vehicle from Supabase.
 
 ### 3. Page Implementation (`src/app/[vehicle]/page.tsx`)
-The page components (e.g., `src/app/mullenOne/page.tsx`) are consumers of this configuration.
-- They import the JSON data.
-- They conditionally render sections based on `sectionVisibility` flags in the JSON.
-- They pass the data down to reusable components (e.g., `<Hero />`, `<Specs />`).
+We use a **Server Component** pattern for performance and SEO.
+- **Server Component (`page.tsx`):** Fetches data from Supabase and passes it to the client.
+- **Client Component (`[Vehicle]Client.tsx`):** Receives the data and handles the UI rendering (interactive elements, modals, etc.).
 
 ## Directory Structure
 
